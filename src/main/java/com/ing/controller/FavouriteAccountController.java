@@ -23,7 +23,7 @@ import com.ing.service.FavouriteAccountService;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(allowedHeaders = { "", "/" }, origins = { "", "/" })
+@CrossOrigin(allowedHeaders = { "*", "*/" }, origins = { "*", "*/" })
 public class FavouriteAccountController {
 	
 	@Autowired
