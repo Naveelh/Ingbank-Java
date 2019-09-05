@@ -26,7 +26,7 @@ import com.ing.service.LoginServiceImpl;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(allowedHeaders = { "", "/" }, origins = { "", "/" })
+@CrossOrigin(allowedHeaders = { "*", "*/" }, origins = { "*", "*/" })
 public class Logincontroller {
 	private static final Logger logger = LoggerFactory.getLogger(Logincontroller.class);
 	
