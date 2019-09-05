@@ -5,6 +5,6 @@ import com.ing.dto.LoginResDto;
 
 public interface LoginService {
 
-	LoginResDto userLogin(LoginReqDto loginDto);
+	LoginResDto login(LoginReqDto loginDto);
 
 }

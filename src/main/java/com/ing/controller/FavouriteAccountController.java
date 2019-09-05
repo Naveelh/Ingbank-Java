@@ -1,7 +1,5 @@
 package com.ing.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,32 +9,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ing.dto.LoginReqDto;
-import com.ing.dto.LoginResDto;
-import com.ing.service.LoginService;
-import com.ing.service.LoginServiceImpl;
+import com.ing.dto.AddFavReqDto;
+import com.ing.dto.AddFavResDto;
+import com.ing.service.FavouriteAccountService;
 
 /**
  * 
  * @author Pradeep
- * @param LoginReqDto
- * @return LoginResDto
+ * @param AddFavReqDto
+ * @return AddFavResDto
  */
 
 
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(allowedHeaders = { "", "/" }, origins = { "", "/" })
-public class Logincontroller {
-	private static final Logger logger = LoggerFactory.getLogger(Logincontroller.class);
+public class FavouriteAccountController {
 	
 	@Autowired
-	private LoginService loginService;
+	private FavouriteAccountService favouriteAccount;
 	
-	@PostMapping("/login")
-	public ResponseEntity<LoginResDto> login(@RequestBody LoginReqDto reqdto){
-		logger.info("Entering to login()");
-		return new ResponseEntity<>(loginService.login(reqdto),HttpStatus.OK);
+	@PostMapping("accounts")
+	public ResponseEntity<AddFavResDto> addFavAccount(@RequestBody AddFavReqDto favReqDto){
+		return new ResponseEntity<>(favouriteAccount.addFavAccount(favReqDto), HttpStatus.CREATED);
 	}
 
 }
